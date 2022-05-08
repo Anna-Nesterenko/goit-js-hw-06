@@ -1,12 +1,12 @@
-const liItemElem = document.querySelectorAll(".item");
+const liItemElem = document.querySelectorAll("li.item");
+
 console.log(`Number of categories: ${liItemElem.length}`);
 
-const categoriesArr = [...liItemElem]
-  .map(
-    (categories) =>
-      `Category: ${categories.children[0].textContent}
-Elements: ${categories.children[1].children.length} `
-  )
-  .join("\n");
+const ulItemElem = document.querySelectorAll("#categories>li");
 
-console.log(categoriesArr);
+ulItemElem.forEach((el) => {
+  console.log(
+    `Category: ${el.firstElementChild.textContent}
+Elements: ${el.lastElementChild.children.length}`
+  );
+});
