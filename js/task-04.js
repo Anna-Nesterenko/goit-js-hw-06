@@ -6,13 +6,11 @@ const valueEl = document.querySelector("#value");
 decrementBtn.addEventListener("click", function () {
   //   console.log("кликнули на минус");
   counterValue -= 1;
-  //   console.log(counterValue);
   valueEl.textContent = counterValue;
 });
 
 incrementBtn.addEventListener("click", function () {
   //   console.log("кликнули на плюс");
   counterValue += 1;
-  // console.log(counterValue);
   valueEl.textContent = counterValue;
 });
