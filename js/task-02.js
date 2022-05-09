@@ -23,7 +23,7 @@ const ulList = document.querySelector("#ingredients");
 const makeLiSeparate = (element) => {
   const liElem = document.createElement("li");
   liElem.classList.add("item");
-  liElem.innerHTML = element;
+  liElem.textContent = element;
   return liElem;
 };
 
