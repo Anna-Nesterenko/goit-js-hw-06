@@ -1,4 +1,4 @@
-// Не работает. Подумаю позже
+// *запускает только один цикл
 const input = document.querySelector("#controls input");
 const create = document.querySelector("[data-create]");
 const destroy = document.querySelector("[data-destroy]");
