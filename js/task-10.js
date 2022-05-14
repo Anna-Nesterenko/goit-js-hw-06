@@ -26,14 +26,19 @@ function onCreateBoxes(amount) {
     //  baseBoxSize += 10;
     const newBox = document.createElement("div");
     newBox.style.background = getRandomHexColor();
-    newBox.style.height = `${baseBoxSize + i * 10}px`;
-    newBox.style.width = `${baseBoxSize + i * 10}px`;
+    newBox.style.height = `${baseBoxSize + 10 * i}px`;
+    newBox.style.width = `${baseBoxSize + 10 * i}px`;
+    newBox.classList.add("new-box");
     boxes.append(newBox);
   }
 }
 
 function onDestroyBoxes() {
-  boxes.remove();
+  const allNewBoxes = document.querySelectorAll(".new-box");
+  // console.log(allNewBoxes);
+  for (let allNewBoxe of allNewBoxes) {
+    boxes.removeChild(allNewBoxe);
+  }
 }
 
 function getRandomHexColor() {
