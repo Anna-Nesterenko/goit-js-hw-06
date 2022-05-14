@@ -1,29 +1,33 @@
 // *запускает только один цикл
 const input = document.querySelector("#controls input");
+
 const create = document.querySelector("[data-create]");
 const destroy = document.querySelector("[data-destroy]");
 const boxes = document.querySelector("#boxes");
 
-const inputChange = (event) => {
+create.addEventListener("click", amountItem);
+destroy.addEventListener("click", onDestroyBoxes);
+
+function inputChange(event) {
   input.setAttribute("count", Number(event.currentTarget.value));
   console.log(Number(event.currentTarget.value));
-};
+}
 
 input.addEventListener("input", inputChange);
 
-create.addEventListener("click", onCreateBoxes);
-destroy.addEventListener("click", onDestroyBoxes);
+function amountItem() {
+  const amount = input.value;
+  onCreateBoxes(amount);
+}
 
-let baseBoxSize = 30;
-
-function onCreateBoxes() {
-  let amount = Number(input.getAttribute("count"));
+function onCreateBoxes(amount) {
+  const baseBoxSize = 30;
   for (let i = 0; i < amount; i += 1) {
-    baseBoxSize += 10;
+    //  baseBoxSize += 10;
     const newBox = document.createElement("div");
     newBox.style.background = getRandomHexColor();
-    newBox.style.height = baseBoxSize + "px";
-    newBox.style.width = baseBoxSize + "px";
+    newBox.style.height = `${baseBoxSize + i * 10}px`;
+    newBox.style.width = `${baseBoxSize + i * 10}px`;
     boxes.append(newBox);
   }
 }

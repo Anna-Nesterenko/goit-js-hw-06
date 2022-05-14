@@ -14,24 +14,16 @@ const images = [
 ];
 
 const imgGallery = document.querySelector(".gallery");
-// *Вариант 1
+
 imgGallery.setAttribute(
   "style",
   "list-style-type:none; display: flex; padding: 0; justify-content: space-around;"
 );
-// *Вариант 2
-// imgGallery.style.display = "flex";
-// imgGallery.style.listStyleType = "none";
-// imgGallery.style.justifyContent = "space-around";
-// imgGallery.style.padding = "0";
 
-const makeGallery = (elements) => {
-  elements.forEach((el) => {
-    imgGallery.insertAdjacentHTML(
-      "afterbegin",
-      `<li><img src = "${el.url}" alt = "${el.alt}" width = "200" height = "130"/><li>`
-    );
-  });
-};
+const imagesList = ({ url, alt }) =>
+  `<li><img src = ${url} alt = "${alt}" width = "200" height = "130"/><li>`;
 
-makeGallery(images);
+const addImg = images.map(imagesList).join("");
+// console.log(addImg);
+
+imgGallery.insertAdjacentHTML("afterbegin", addImg);

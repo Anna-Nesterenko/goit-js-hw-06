@@ -5,12 +5,21 @@ form.addEventListener("submit", onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  const {
-    elements: { email, password },
-  } = event.currentTarget;
-  if (email.value === "" || password.value === "") {
+  const formElements = event.currentTarget.elements;
+  //   console.log(formElements);
+
+  const mail = formElements.email;
+  const password = formElements.password;
+  //   console.log(mail, password);
+
+  if (mail.value === "" || password.value === "") {
     alert("Введіть данні!");
+  } else {
+    const objForm = {
+      [mail.name]: mail.value,
+      [password.name]: password.value,
+    };
+    console.log(objForm);
   }
-  console.log(`Login: ${email.value}, Password: ${password.value}`);
   event.currentTarget.reset();
 }
