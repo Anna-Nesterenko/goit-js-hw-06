@@ -16,26 +16,26 @@ function amountItem() {
   const amount = input.value;
   onCreateBoxes(amount);
 }
+const baseBoxSize = 30;
 
 function onCreateBoxes(amount) {
-  const baseBoxSize = 30;
   for (let i = 0; i < amount; i += 1) {
     const newBox = document.createElement("div");
     newBox.style.background = getRandomHexColor();
-    //  newBox.style.height = `${baseBoxSize + 10 * i}px`;
-    //  newBox.style.width = `${baseBoxSize + 10 * i}px`;
     newBox.classList.add("new-box");
-    if (amount !== 0) {
-      newBox.style.height = `${baseBoxSize + 10 * i}px`;
-      newBox.style.width = `${baseBoxSize + 10 * i}px`;
-    } else {
-      newBox.style.height = `${baseBoxSize}px`;
-      newBox.style.width = `${baseBoxSize}px`;
-    }
-    //  console.log(baseBoxSize + 10 * i);
+    newBox.style.height = `${baseBoxSize + 10 * i}px`;
+    newBox.style.width = `${baseBoxSize + 10 * i}px`;
+
     boxes.append(newBox);
   }
 }
+//     if (amount !== 0) {
+//       newBox.style.height = `${baseBoxSize + 10 * i}px`;
+//       newBox.style.width = `${baseBoxSize + 10 * i}px`;
+//     } else {
+//       newBox.style.height = `${baseBoxSize}px`;
+//       newBox.style.width = `${baseBoxSize}px`;
+//     }
 
 function onDestroyBoxes() {
   const allNewBoxes = document.querySelectorAll(".new-box");
