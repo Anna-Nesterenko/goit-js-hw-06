@@ -23,12 +23,19 @@ function amountItem() {
 function onCreateBoxes(amount) {
   const baseBoxSize = 30;
   for (let i = 0; i < amount; i += 1) {
-    //  baseBoxSize += 10;
     const newBox = document.createElement("div");
     newBox.style.background = getRandomHexColor();
-    newBox.style.height = `${baseBoxSize + 10 * i}px`;
-    newBox.style.width = `${baseBoxSize + 10 * i}px`;
+    //   newBox.style.height = `${baseBoxSize + 10 * i}px`;
+    //   newBox.style.width = `${baseBoxSize + 10 * i}px`;
     newBox.classList.add("new-box");
+    if (newBox.style.width !== 0) {
+      newBox.style.height = `${baseBoxSize + 10 * i}px`;
+      newBox.style.width = `${baseBoxSize + 10 * i}px`;
+    } else {
+      newBox.style.height = `${baseBoxSize}px`;
+      newBox.style.width = `${baseBoxSize}px`;
+    }
+    console.log(baseBoxSize);
     boxes.append(newBox);
   }
 }
